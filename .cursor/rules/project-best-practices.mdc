@@ -1,0 +1,43 @@
+---
+description: Best practices for MyFitnessAppV2 (React, .NET API, PostgreSQL)
+alwaysApply: true
+---
+
+# Project Best Practices
+
+Apply these for a professional, consistent structure across the codebase.
+
+## React (frontend)
+
+- Use functional components and hooks; extract reusable logic into custom hooks.
+- Prefer clear data flow: avoid unnecessary context; use props and local state first.
+- Lazy-load heavy or route-specific components where it helps bundle size.
+- Keep components focused: single responsibility, small and readable.
+
+## API (.NET 8 Web API)
+
+- REST: resources as nouns, HTTP methods for actions (GET, POST, PUT/PATCH, DELETE).
+- Consistent routes (e.g. `/api/users`, `/api/users/{id}`) and versioning if needed.
+- Pagination for list endpoints; consistent error format and HTTP status codes.
+- Validate input (e.g. FluentValidation or DataAnnotations); return 4xx/5xx appropriately.
+
+## PostgreSQL & EF Core
+
+- Index columns used in filters, joins, and ordering; avoid over-indexing.
+- Use migrations for schema changes; keep migrations small and descriptive.
+- Prefer clear entity names and relationships; avoid N+1 (e.g. Include/ProjectTo as needed).
+
+## Auth & security
+
+- Store secrets in configuration (e.g. User Secrets, env vars); never in code.
+- Use HTTPS in production; validate and sanitize input; apply authZ on every protected endpoint.
+
+## Error handling
+
+- Handle errors at API boundary; return consistent error DTOs and status codes.
+- Log exceptions with context; avoid exposing internal details to the client.
+
+## File structure
+
+- Group by feature or domain where it helps (e.g. `Features/Users`, `Features/Foods`).
+- Keep a clear split: `ClientApp/` (React) vs API project; shared DTOs/contracts in a sensible place.
