@@ -6,7 +6,16 @@ MyFitnessApp rebuilt with .NET 8, React, Material UI, and PostgreSQL (AI-assiste
 
 ### Database (PostgreSQL)
 
-Create a database named `MyFitnessApp` (or set `ConnectionStrings:DefaultConnection` in `Api/appsettings.json` or User Secrets). Then apply migrations:
+1. Create a database named `MyFitnessApp` (or use your own name).
+2. Set the connection string **via User Secrets** (so the password is never in the repo):
+
+   ```bash
+   cd Api
+   dotnet user-secrets set "ConnectionStrings:DefaultConnection" "Host=localhost;Port=5432;Database=MyFitnessApp;Username=postgres;Password=YOUR_ACTUAL_PASSWORD"
+   ```
+
+   Or set it in `Api/appsettings.json` for local-only use (do not commit real passwords).
+3. Apply migrations:
 
 ```bash
 cd Api
