@@ -1,6 +1,6 @@
 # MyFitnessAppV2 – Project Status
 
-**Last updated:** 2026-02-20  
+**Last updated:** 2026-02-21  
 **Repo:** [GeorgiGradev/MyFitnessApp-AI](https://github.com/GeorgiGradev/MyFitnessApp-AI)  
 **Purpose:** Rebuild [MyFitnessApp](https://github.com/GeorgiGradev/MyFitnessApp) with .NET 8, React, Material UI, PostgreSQL (AI-assisted). Track progress and next steps here.
 
@@ -46,11 +46,10 @@
 - [x] Create .NET 8 Web API project (e.g. `Api/`).
 - [x] Create React app with Vite + TypeScript in `ClientApp/`.
 - [x] Add Material UI, React Query, React Hook Form, Zod, React Router.
-- [ ] Configure API to serve React static files in production (optional; done later before deploy).
 - [x] Add Swagger/OpenAPI to API.
 - [x] One “hello” endpoint and one React page that calls it.
 - [x] Verify both run locally (API + React dev server) – builds succeed.
-- [ ] **Commit:** e.g. `Project skeleton: .NET 8 API + React (Vite, TS, MUI, React Query, RHF+Zod)`.
+- [x] **Commit:** e.g. `Project skeleton: .NET 8 API + React (Vite, TS, MUI, React Query, RHF+Zod)`.
 
 ---
 
@@ -60,7 +59,7 @@
 - [x] Create DbContext and base entities (User, Profile, and any needed for later modules).
 - [x] Add and run initial migration(s).
 - [x] Configure connection string (e.g. appsettings, User Secrets for local).
-- [ ] **Commit:** e.g. `Database: PostgreSQL + EF Core + initial migration`.
+- [x] **Commit:** Database + connection string fix (User Secrets, no hardcoded password).
 
 ---
 
@@ -138,6 +137,7 @@
 - [ ] Configure production config / env (e.g. Railway or Render).
 - [ ] Deploy API (+ React static files if single deployment).
 - [ ] Run migrations; verify app online.
+- [ ] Configure API to serve React static files in production (optional; done before deploy).
 - [ ] **Commit:** e.g. `Deployment config and docs update` (if any repo changes).
 
 ---
@@ -178,7 +178,7 @@ The exam takes place **between 21 and 24 February 2026**, as follows:
 
 ## Next step
 
-**Step 2 done.** Commit and push, then start **Step 3: Authentication** – register, login, JWT, profile gate.
+**Step 2 done and committed** (DB + User Secrets fix). Start **Step 3: Authentication** – register, login, JWT, profile gate.
 
 ---
 
