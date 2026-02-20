@@ -56,10 +56,10 @@
 
 ### Step 2: Database
 
-- [ ] Add PostgreSQL (Npgsql) + EF Core 8 to API.
-- [ ] Create DbContext and base entities (User, Profile, and any needed for later modules).
-- [ ] Add and run initial migration(s).
-- [ ] Configure connection string (e.g. appsettings, User Secrets for local).
+- [x] Add PostgreSQL (Npgsql) + EF Core 8 to API.
+- [x] Create DbContext and base entities (User, Profile, and any needed for later modules).
+- [x] Add and run initial migration(s).
+- [x] Configure connection string (e.g. appsettings, User Secrets for local).
 - [ ] **Commit:** e.g. `Database: PostgreSQL + EF Core + initial migration`.
 
 ---
@@ -178,7 +178,7 @@ The exam takes place **between 21 and 24 February 2026**, as follows:
 
 ## Next step
 
-**Step 1 done.** Commit and push, then start **Step 2: Database** – add PostgreSQL, EF Core, DbContext, initial migration.
+**Step 2 done.** Commit and push, then start **Step 3: Authentication** – register, login, JWT, profile gate.
 
 ---
 

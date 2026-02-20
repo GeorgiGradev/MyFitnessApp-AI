@@ -4,6 +4,17 @@ MyFitnessApp rebuilt with .NET 8, React, Material UI, and PostgreSQL (AI-assiste
 
 ## Run locally
 
+### Database (PostgreSQL)
+
+Create a database named `MyFitnessApp` (or set `ConnectionStrings:DefaultConnection` in `Api/appsettings.json` or User Secrets). Then apply migrations:
+
+```bash
+cd Api
+dotnet ef database update
+```
+
+(If the API is running, stop it first.)
+
 ### API (.NET 8)
 
 ```bash
