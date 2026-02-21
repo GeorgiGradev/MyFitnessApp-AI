@@ -15,6 +15,7 @@ import ForumPostPage from './pages/ForumPostPage';
 import BlogPage from './pages/BlogPage';
 import ArticlePage from './pages/ArticlePage';
 import NewArticlePage from './pages/NewArticlePage';
+import SocialPage from './pages/SocialPage';
 
 const queryClient = new QueryClient();
 const theme = createTheme();
@@ -106,6 +107,14 @@ function App() {
                 element={
                   <ProtectedRoute>
                     <ArticlePage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/social"
+                element={
+                  <ProtectedRoute>
+                    <SocialPage />
                   </ProtectedRoute>
                 }
               />

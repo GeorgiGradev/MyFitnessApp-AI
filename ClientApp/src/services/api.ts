@@ -256,6 +256,42 @@ export function clearAuthFromStorage(): void {
   localStorage.removeItem(AUTH_STORAGE_KEY);
 }
 
+// --- Follows (social) ---
+export interface UserListItemDto {
+  id: string;
+  displayName: string;
+  isFollowing: boolean;
+}
+export interface FollowerDto {
+  userId: string;
+  displayName: string;
+}
+
+export async function getFollowUsers(search?: string): Promise<UserListItemDto[]> {
+  const q = search ? `?search=${encodeURIComponent(search)}` : '';
+  const res = await apiFetch(`/follows/users${q}`);
+  if (!res.ok) throw new Error('Failed to load users');
+  return res.json();
+}
+export async function getFollowing(): Promise<FollowerDto[]> {
+  const res = await apiFetch('/follows/following');
+  if (!res.ok) throw new Error('Failed to load following');
+  return res.json();
+}
+export async function getFollowers(): Promise<FollowerDto[]> {
+  const res = await apiFetch('/follows/followers');
+  if (!res.ok) throw new Error('Failed to load followers');
+  return res.json();
+}
+export async function followUser(userId: string): Promise<void> {
+  const res = await apiFetch(`/follows/${userId}`, { method: 'POST' });
+  if (!res.ok) throw new Error(await parseErrorResponse(res, 'Failed to follow'));
+}
+export async function unfollowUser(userId: string): Promise<void> {
+  const res = await apiFetch(`/follows/${userId}`, { method: 'DELETE' });
+  if (!res.ok) throw new Error(await parseErrorResponse(res, 'Failed to unfollow'));
+}
+
 // --- Eating plans ---
 export interface EatingPlanDto {
   id: string;

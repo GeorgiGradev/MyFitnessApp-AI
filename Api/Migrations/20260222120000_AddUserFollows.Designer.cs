@@ -2,18 +2,21 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using MyFitnessApp.Api.Data;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
+using MyFitnessApp.Api.Data;
 
 #nullable disable
 
 namespace MyFitnessApp.Api.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260222120000_AddUserFollows")]
+    partial class AddUserFollows
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -27,140 +30,56 @@ namespace MyFitnessApp.Api.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
-
-                    b.Property<DateTime>("CreatedAtUtc")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<DateTime?>("DateOfBirth")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("DisplayName")
-                        .HasMaxLength(200)
-                        .HasColumnType("character varying(200)");
-
-                    b.Property<string>("Gender")
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
-
-                    b.Property<decimal?>("HeightCm")
-                        .HasPrecision(5, 2)
-                        .HasColumnType("numeric(5,2)");
-
-                    b.Property<DateTime?>("UpdatedAtUtc")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uuid");
-
-                    b.Property<decimal?>("WeightKg")
-                        .HasPrecision(5, 2)
-                        .HasColumnType("numeric(5,2)");
-
+                    b.Property<DateTime>("CreatedAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<DateTime?>("DateOfBirth").HasColumnType("timestamp with time zone");
+                    b.Property<string>("DisplayName").HasMaxLength(200).HasColumnType("character varying(200)");
+                    b.Property<string>("Gender").HasMaxLength(50).HasColumnType("character varying(50)");
+                    b.Property<decimal?>("HeightCm").HasPrecision(5, 2).HasColumnType("numeric(5,2)");
+                    b.Property<DateTime?>("UpdatedAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<Guid>("UserId").HasColumnType("uuid");
+                    b.Property<decimal?>("WeightKg").HasPrecision(5, 2).HasColumnType("numeric(5,2)");
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId")
-                        .IsUnique();
-
+                    b.HasIndex("UserId").IsUnique();
                     b.ToTable("Profiles");
                 });
 
             modelBuilder.Entity("MyFitnessApp.Api.Models.User", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<DateTime>("CreatedAtUtc")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(256)
-                        .HasColumnType("character varying(256)");
-
-                    b.Property<bool>("IsAdmin")
-                        .HasColumnType("boolean");
-
-                    b.Property<bool>("IsBanned")
-                        .HasColumnType("boolean");
-
-                    b.Property<string>("NormalizedEmail")
-                        .IsRequired()
-                        .HasMaxLength(256)
-                        .HasColumnType("character varying(256)");
-
-                    b.Property<string>("PasswordHash")
-                        .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("character varying(500)");
-
+                    b.Property<Guid>("Id").ValueGeneratedOnAdd().HasColumnType("uuid");
+                    b.Property<DateTime>("CreatedAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<string>("Email").IsRequired().HasMaxLength(256).HasColumnType("character varying(256)");
+                    b.Property<bool>("IsAdmin").HasColumnType("boolean");
+                    b.Property<bool>("IsBanned").HasColumnType("boolean");
+                    b.Property<string>("NormalizedEmail").IsRequired().HasMaxLength(256).HasColumnType("character varying(256)");
+                    b.Property<string>("PasswordHash").IsRequired().HasMaxLength(500).HasColumnType("character varying(500)");
                     b.HasKey("Id");
-
-                    b.HasIndex("NormalizedEmail")
-                        .IsUnique();
-
+                    b.HasIndex("NormalizedEmail").IsUnique();
                     b.ToTable("Users");
                 });
 
             modelBuilder.Entity("MyFitnessApp.Api.Models.Exercise", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("Category")
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(100)");
-
-                    b.Property<DateTime>("CreatedAtUtc")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("Description")
-                        .HasMaxLength(2000)
-                        .HasColumnType("character varying(2000)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("character varying(200)");
-
+                    b.Property<Guid>("Id").ValueGeneratedOnAdd().HasColumnType("uuid");
+                    b.Property<string>("Category").HasMaxLength(100).HasColumnType("character varying(100)");
+                    b.Property<DateTime>("CreatedAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<string>("Description").HasMaxLength(2000).HasColumnType("character varying(2000)");
+                    b.Property<string>("Name").IsRequired().HasMaxLength(200).HasColumnType("character varying(200)");
                     b.HasKey("Id");
-
                     b.HasIndex("Name");
-
                     b.ToTable("Exercises");
                 });
 
             modelBuilder.Entity("MyFitnessApp.Api.Models.Food", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<decimal>("CaloriesPer100g")
-                        .HasColumnType("numeric(18,2)");
-
-                    b.Property<decimal>("CarbsPer100g")
-                        .HasColumnType("numeric(18,2)");
-
-                    b.Property<DateTime>("CreatedAtUtc")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<decimal>("FatPer100g")
-                        .HasColumnType("numeric(18,2)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("character varying(200)");
-
-                    b.Property<decimal>("ProteinPer100g")
-                        .HasColumnType("numeric(18,2)");
-
+                    b.Property<Guid>("Id").ValueGeneratedOnAdd().HasColumnType("uuid");
+                    b.Property<decimal>("CaloriesPer100g").HasColumnType("numeric(18,2)");
+                    b.Property<decimal>("CarbsPer100g").HasColumnType("numeric(18,2)");
+                    b.Property<DateTime>("CreatedAtUtc").HasColumnType("timestamp with time zone");
+                    b.Property<decimal>("FatPer100g").HasColumnType("numeric(18,2)");
+                    b.Property<string>("Name").IsRequired().HasMaxLength(200).HasColumnType("character varying(200)");
+                    b.Property<decimal>("ProteinPer100g").HasColumnType("numeric(18,2)");
                     b.HasKey("Id");
-
                     b.HasIndex("Name");
-
                     b.ToTable("Foods");
                 });
 
@@ -276,12 +195,7 @@ namespace MyFitnessApp.Api.Migrations
 
             modelBuilder.Entity("MyFitnessApp.Api.Models.Profile", b =>
                 {
-                    b.HasOne("MyFitnessApp.Api.Models.User", "User")
-                        .WithOne("Profile")
-                        .HasForeignKey("MyFitnessApp.Api.Models.Profile", "UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
+                    b.HasOne("MyFitnessApp.Api.Models.User", "User").WithOne("Profile").HasForeignKey("MyFitnessApp.Api.Models.Profile", "UserId").OnDelete(DeleteBehavior.Cascade).IsRequired();
                     b.Navigation("User");
                 });
 
@@ -293,10 +207,7 @@ namespace MyFitnessApp.Api.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("MyFitnessApp.Api.Models.ArticleCategory", b =>
-                {
-                    b.Navigation("Articles");
-                });
+            modelBuilder.Entity("MyFitnessApp.Api.Models.ArticleCategory", b => { b.Navigation("Articles"); });
 
             modelBuilder.Entity("MyFitnessApp.Api.Models.Comment", b =>
                 {
@@ -351,10 +262,7 @@ namespace MyFitnessApp.Api.Migrations
                     b.Navigation("FollowingUser");
                 });
 
-            modelBuilder.Entity("MyFitnessApp.Api.Models.User", b =>
-                {
-                    b.Navigation("Profile");
-                });
+            modelBuilder.Entity("MyFitnessApp.Api.Models.User", b => { b.Navigation("Profile"); });
 #pragma warning restore 612, 618
         }
     }

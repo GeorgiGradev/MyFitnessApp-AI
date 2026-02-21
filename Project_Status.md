@@ -77,7 +77,7 @@
 
 - [x] API: CRUD for foods and exercises (create, search; admin-only delete).
 - [x] React: list, search, create; admin delete where applicable.
-- [ ] **Commit:** e.g. `Foods and Exercises module`.
+- [x] **Commit:** e.g. `Foods and Exercises module`.
 
 ---
 
@@ -85,7 +85,7 @@
 
 - [x] API: create, edit, delete eating and workout plans (and entries; by current user).
 - [x] React: UI for managing diaries (date picker, eating/workout tabs, add/delete entries).
-- [ ] **Commit:** e.g. `Diaries: eating and workout plans`.
+- [x] **Commit:** e.g. `Diaries: eating and workout plans`.
 
 ---
 
@@ -93,7 +93,7 @@
 
 - [x] API: forum posts, comments, search.
 - [x] React: list, create, edit, delete posts and comments (with confirmation for delete comment).
-- [ ] **Commit:** e.g. `Forum: posts and comments`.
+- [x] **Commit:** e.g. `Forum: posts and comments`.
 
 ---
 
@@ -101,16 +101,15 @@
 
 - [x] API: articles, categories (CRUD; [Authorize] for create/update/delete).
 - [x] React: list (with category filter), create, edit, delete articles.
-- [ ] **Commit:** e.g. `Blog: articles`.
+- [x] **Commit:** e.g. `Blog: articles`.
 
 ---
 
 ### Step 8: Social
 
-- [ ] API: follow/unfollow users.
-- [ ] Optional: email (e.g. SendGrid) for user-to-user messages.
-- [ ] React: follow/unfollow UI, optional email flow.
-- [ ] **Commit:** e.g. `Social: follow/unfollow, optional email`.
+- [x] API: follow/unfollow users (list users with isFollowing, following/followers lists, prevent self-follow and following banned users).
+- [x] React: follow/unfollow UI (Discover, Following, Followers tabs).
+- [ ] **Commit:** e.g. `Social: follow/unfollow`.
 
 ---
 
@@ -178,7 +177,7 @@ The exam takes place **between 21 and 24 February 2026**, as follows:
 
 ## Next step
 
-**Steps 5–7 (Batch A) done.** Apply migration: run `dotnet ef database update` (with API stopped), then restart API. Commit (e.g. `Diaries, Forum, Blog (Batch A)`), then start **Step 8: Social**.
+**Step 8 done.** Apply migration `AddUserFollows` if not yet applied: run `dotnet ef database update` (with API stopped), then restart API. Commit (e.g. `Social: follow/unfollow`), then start **Step 9: Admin**.
 
 ---
 

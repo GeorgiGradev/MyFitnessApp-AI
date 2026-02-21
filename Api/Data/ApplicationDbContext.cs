@@ -22,6 +22,7 @@ public class ApplicationDbContext : DbContext
     public DbSet<Comment> Comments => Set<Comment>();
     public DbSet<ArticleCategory> ArticleCategories => Set<ArticleCategory>();
     public DbSet<Article> Articles => Set<Article>();
+    public DbSet<UserFollow> UserFollows => Set<UserFollow>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -102,6 +103,14 @@ public class ApplicationDbContext : DbContext
             entity.HasKey(e => e.Id);
             entity.HasOne(e => e.Category).WithMany(c => c.Articles).HasForeignKey(e => e.CategoryId).OnDelete(DeleteBehavior.SetNull);
             entity.HasOne(e => e.Author).WithMany().HasForeignKey(e => e.AuthorUserId).OnDelete(DeleteBehavior.SetNull);
+        });
+
+        modelBuilder.Entity<UserFollow>(entity =>
+        {
+            entity.HasKey(e => new { e.FollowerUserId, e.FollowingUserId });
+            entity.HasIndex(e => new { e.FollowerUserId, e.FollowingUserId }).IsUnique();
+            entity.HasOne(e => e.FollowerUser).WithMany().HasForeignKey(e => e.FollowerUserId).OnDelete(DeleteBehavior.Cascade);
+            entity.HasOne(e => e.FollowingUser).WithMany().HasForeignKey(e => e.FollowingUserId).OnDelete(DeleteBehavior.Cascade);
         });
     }
 }
