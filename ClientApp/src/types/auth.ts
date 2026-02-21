@@ -3,6 +3,7 @@ export interface AuthResponse {
   userId: string;
   email: string;
   hasProfile: boolean;
+  isAdmin: boolean;
 }
 
 export interface AuthState {
@@ -10,6 +11,7 @@ export interface AuthState {
   userId: string | null;
   email: string | null;
   hasProfile: boolean;
+  isAdmin: boolean;
   isLoading: boolean;
   isInitialized: boolean;
 }

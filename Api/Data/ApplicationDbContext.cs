@@ -12,6 +12,8 @@ public class ApplicationDbContext : DbContext
 
     public DbSet<User> Users => Set<User>();
     public DbSet<Profile> Profiles => Set<Profile>();
+    public DbSet<Food> Foods => Set<Food>();
+    public DbSet<Exercise> Exercises => Set<Exercise>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -29,6 +31,18 @@ public class ApplicationDbContext : DbContext
         {
             entity.HasKey(e => e.Id);
             entity.HasIndex(e => e.UserId).IsUnique();
+        });
+
+        modelBuilder.Entity<Food>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+            entity.HasIndex(e => e.Name);
+        });
+
+        modelBuilder.Entity<Exercise>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+            entity.HasIndex(e => e.Name);
         });
     }
 }

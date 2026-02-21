@@ -7,6 +7,8 @@ import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import ProfilePage from './pages/ProfilePage';
+import FoodsPage from './pages/FoodsPage';
+import ExercisesPage from './pages/ExercisesPage';
 
 const queryClient = new QueryClient();
 const theme = createTheme();
@@ -34,6 +36,22 @@ function App() {
                 element={
                   <ProtectedRoute>
                     <HomePage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/foods"
+                element={
+                  <ProtectedRoute>
+                    <FoodsPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/exercises"
+                element={
+                  <ProtectedRoute>
+                    <ExercisesPage />
                   </ProtectedRoute>
                 }
               />

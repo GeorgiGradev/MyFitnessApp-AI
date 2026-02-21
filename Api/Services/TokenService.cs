@@ -29,6 +29,8 @@ public class TokenService : ITokenService
             new(ClaimTypes.Email, user.Email),
             new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
         };
+        if (user.IsAdmin)
+            claims.Add(new Claim(ClaimTypes.Role, "Admin"));
 
         var token = new JwtSecurityToken(
             issuer: _config["Jwt:Issuer"],

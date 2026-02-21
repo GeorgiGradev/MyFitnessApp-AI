@@ -69,14 +69,14 @@
 - [x] User + Profile (mandatory profile after first login).
 - [x] Protect API endpoints that require auth.
 - [x] React: login/register pages, auth context, token storage, redirect after login.
-- [ ] **Commit:** e.g. `Authentication: register, login, JWT, profile gate`.
+- [x] **Commit:** Authentication: register, login, JWT, profile gate.
 
 ---
 
 ### Step 4: Foods & Exercises
 
-- [ ] API: CRUD for foods and exercises (create, search; admin-only delete).
-- [ ] React: list, search, create; admin delete where applicable.
+- [x] API: CRUD for foods and exercises (create, search; admin-only delete).
+- [x] React: list, search, create; admin delete where applicable.
 - [ ] **Commit:** e.g. `Foods and Exercises module`.
 
 ---
@@ -178,7 +178,7 @@ The exam takes place **between 21 and 24 February 2026**, as follows:
 
 ## Next step
 
-**Step 3 done.** Commit and push (e.g. `Authentication: register, login, JWT, profile gate`), then start **Step 4: Foods & Exercises**.
+**Step 4 done.** Commit (e.g. `Foods and Exercises module`), then start **Step 5: Diaries**.
 
 ---
 

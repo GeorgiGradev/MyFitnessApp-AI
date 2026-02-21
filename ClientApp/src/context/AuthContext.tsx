@@ -21,6 +21,7 @@ interface StoredAuth {
   userId: string;
   email: string;
   hasProfile: boolean;
+  isAdmin: boolean;
 }
 
 interface AuthContextValue {
@@ -28,6 +29,7 @@ interface AuthContextValue {
   userId: string | null;
   email: string | null;
   hasProfile: boolean;
+  isAdmin: boolean;
   isLoading: boolean;
   isInitialized: boolean;
   login: (auth: AuthResponse) => void;
@@ -53,6 +55,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [userId, setUserId] = useState<string | null>(null);
   const [email, setEmail] = useState<string | null>(null);
   const [hasProfile, setHasProfileState] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [isInitialized, setIsInitialized] = useState(false);
 
@@ -73,6 +76,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setUserId(me.userId);
       setEmail(me.email);
       setHasProfileState(me.hasProfile);
+      setIsAdmin(me.isAdmin);
       saveAuthToStorage(me);
     } catch {
       clearAuthFromStorage();
@@ -80,6 +84,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setUserId(null);
       setEmail(null);
       setHasProfileState(false);
+      setIsAdmin(false);
     } finally {
       setIsLoading(false);
       setIsInitialized(true);
@@ -97,12 +102,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setUserId(stored.userId);
     setEmail(stored.email);
     setHasProfileState(stored.hasProfile);
+    setIsAdmin(stored.isAdmin ?? false);
     getMe()
       .then((me) => {
         setToken(me.token);
         setUserId(me.userId);
         setEmail(me.email);
         setHasProfileState(me.hasProfile);
+        setIsAdmin(me.isAdmin);
         saveAuthToStorage(me);
       })
       .catch(() => {
@@ -111,6 +118,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         setUserId(null);
         setEmail(null);
         setHasProfileState(false);
+        setIsAdmin(false);
       })
       .finally(() => {
         setIsLoading(false);
@@ -124,6 +132,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setUserId(auth.userId);
     setEmail(auth.email);
     setHasProfileState(auth.hasProfile);
+    setIsAdmin(auth.isAdmin);
   }, []);
 
   const logout = useCallback(() => {
@@ -132,6 +141,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setUserId(null);
     setEmail(null);
     setHasProfileState(false);
+    setIsAdmin(false);
   }, []);
 
   const setHasProfile = useCallback((value: boolean) => {
@@ -144,6 +154,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       userId,
       email,
       hasProfile,
+      isAdmin,
       isLoading,
       isInitialized,
       login,
@@ -156,6 +167,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       userId,
       email,
       hasProfile,
+      isAdmin,
       isLoading,
       isInitialized,
       login,

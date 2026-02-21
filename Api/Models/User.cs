@@ -16,6 +16,7 @@ public class User
     public string NormalizedEmail { get; set; } = string.Empty;
     public DateTime CreatedAtUtc { get; set; }
     public bool IsBanned { get; set; }
+    public bool IsAdmin { get; set; }
 
     public virtual Profile? Profile { get; set; }
 }

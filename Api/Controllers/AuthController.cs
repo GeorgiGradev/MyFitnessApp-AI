@@ -52,7 +52,8 @@ public class AuthController : ControllerBase
                 Token = token,
                 UserId = user.Id,
                 Email = user.Email,
-                HasProfile = false
+                HasProfile = false,
+                IsAdmin = false
             });
         }
         catch (Exception ex)
@@ -85,7 +86,8 @@ public class AuthController : ControllerBase
             Token = token,
             UserId = user.Id,
             Email = user.Email,
-            HasProfile = hasProfile
+            HasProfile = hasProfile,
+            IsAdmin = user.IsAdmin
         });
     }
 
@@ -114,7 +116,8 @@ public class AuthController : ControllerBase
             Token = token,
             UserId = user.Id,
             Email = user.Email,
-            HasProfile = hasProfile
+            HasProfile = hasProfile,
+            IsAdmin = user.IsAdmin
         });
     }
 }
