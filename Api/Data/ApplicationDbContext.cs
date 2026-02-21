@@ -20,7 +20,7 @@ public class ApplicationDbContext : DbContext
             entity.HasKey(e => e.Id);
             entity.HasIndex(e => e.NormalizedEmail).IsUnique();
             entity.HasOne(e => e.Profile)
-                  .WithOne()
+                  .WithOne(p => p.User)
                   .HasForeignKey<Profile>(p => p.UserId)
                   .OnDelete(DeleteBehavior.Cascade);
         });

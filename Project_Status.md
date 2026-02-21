@@ -65,10 +65,10 @@
 
 ### Step 3: Authentication
 
-- [ ] Register and login endpoints (e.g. JWT Bearer).
-- [ ] User + Profile (mandatory profile after first login).
-- [ ] Protect API endpoints that require auth.
-- [ ] React: login/register pages, auth context, token storage, redirect after login.
+- [x] Register and login endpoints (e.g. JWT Bearer).
+- [x] User + Profile (mandatory profile after first login).
+- [x] Protect API endpoints that require auth.
+- [x] React: login/register pages, auth context, token storage, redirect after login.
 - [ ] **Commit:** e.g. `Authentication: register, login, JWT, profile gate`.
 
 ---
@@ -178,7 +178,7 @@ The exam takes place **between 21 and 24 February 2026**, as follows:
 
 ## Next step
 
-**Step 2 done and committed** (DB + User Secrets fix). Start **Step 3: Authentication** – register, login, JWT, profile gate.
+**Step 3 done.** Commit and push (e.g. `Authentication: register, login, JWT, profile gate`), then start **Step 4: Foods & Exercises**.
 
 ---
 

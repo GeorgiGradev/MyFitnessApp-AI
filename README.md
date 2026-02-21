@@ -12,9 +12,10 @@ MyFitnessApp rebuilt with .NET 8, React, Material UI, and PostgreSQL (AI-assiste
    ```bash
    cd Api
    dotnet user-secrets set "ConnectionStrings:DefaultConnection" "Host=localhost;Port=5432;Database=MyFitnessApp;Username=postgres;Password=YOUR_ACTUAL_PASSWORD"
+   dotnet user-secrets set "Jwt:Secret" "YOUR_SUFFICIENTLY_LONG_SECRET_KEY_AT_LEAST_32_CHARS"
    ```
 
-   Or set it in `Api/appsettings.json` for local-only use (do not commit real passwords).
+   Or set in `Api/appsettings.json` for local-only use (do not commit real passwords).
 3. Apply migrations:
 
 ```bash

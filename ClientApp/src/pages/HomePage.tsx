@@ -1,8 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
-import { Box, Typography, CircularProgress, Alert, Paper } from '@mui/material';
+import { Box, Typography, CircularProgress, Alert, Paper, Button } from '@mui/material';
 import { getHello } from '../services/api';
+import { useAuth } from '../context/AuthContext';
 
 export default function HomePage() {
+  const { email, logout } = useAuth();
   const { data, isLoading, error } = useQuery({
     queryKey: ['hello'],
     queryFn: getHello,
@@ -10,9 +12,17 @@ export default function HomePage() {
 
   return (
     <Box sx={{ p: 3 }}>
-      <Typography variant="h4" gutterBottom>
-        MyFitnessApp
-      </Typography>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 1, mb: 2 }}>
+        <Typography variant="h4">MyFitnessApp</Typography>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+          <Typography variant="body2" color="text.secondary">
+            {email}
+          </Typography>
+          <Button size="small" variant="outlined" onClick={() => logout()}>
+            Log out
+          </Button>
+        </Box>
+      </Box>
       <Paper sx={{ p: 2, maxWidth: 400 }}>
         {isLoading && <CircularProgress size={24} />}
         {error && (
