@@ -72,55 +72,71 @@ export default function ExercisesPage() {
   }
 
   return (
-    <Box sx={{ p: 3 }}>
-      <Button component={Link} to="/" sx={{ mb: 2 }}>
+    <Box sx={{ p: 3, maxWidth: 960, mx: 'auto' }}>
+      <Button component={Link} to="/" sx={{ mb: 2 }} variant="text">
         Back
       </Button>
-      <Typography variant="h5" gutterBottom>
-        Exercises
-      </Typography>
-      <Box sx={{ display: 'flex', gap: 2, mb: 2, flexWrap: 'wrap' }}>
-        <TextField
-          size="small"
-          placeholder="Search by name"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          sx={{ minWidth: 200 }}
-        />
-        <Button variant="contained" onClick={() => setOpen(true)}>
-          Add exercise
-        </Button>
-      </Box>
+
+      <Paper variant="outlined" sx={{ p: 2, mb: 2 }}>
+        <Typography variant="h5" fontWeight={600} sx={{ mb: 2 }}>
+          Exercises
+        </Typography>
+        <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', alignItems: 'center' }}>
+          <TextField
+            size="small"
+            placeholder="Search by name"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            sx={{ minWidth: 220, flex: '1 1 200px' }}
+            variant="outlined"
+          />
+          <Button variant="contained" onClick={() => setOpen(true)} disableElevation>
+            Add exercise
+          </Button>
+        </Box>
+      </Paper>
+
       {error && (
         <Alert severity="error" onClose={() => setError(null)} sx={{ mb: 2 }}>
           {error}
         </Alert>
       )}
-      <TableContainer component={Paper}>
-        <Table size="small">
+
+      <TableContainer component={Paper} variant="outlined" sx={{ overflow: 'auto' }}>
+        <Table size="medium" stickyHeader>
           <TableHead>
-            <TableRow>
+            <TableRow sx={{ '& th': { fontWeight: 600, backgroundColor: 'grey.50' } }}>
               <TableCell>Name</TableCell>
               <TableCell>Category</TableCell>
               <TableCell>Description</TableCell>
-              {isAdmin && <TableCell align="right" width={60} />}
+              {isAdmin && <TableCell align="right" width={100} />}
             </TableRow>
           </TableHead>
           <TableBody>
-            {isLoading
-              ? (
-                <TableRow><TableCell colSpan={isAdmin ? 4 : 3}>Loading…</TableCell></TableRow>
-              )
-              : exercises.map((e: ExerciseDto) => (
-                <TableRow key={e.id}>
-                  <TableCell>{e.name}</TableCell>
+            {isLoading ? (
+              <TableRow>
+                <TableCell colSpan={isAdmin ? 4 : 3} align="center" sx={{ py: 4 }}>
+                  Loading…
+                </TableCell>
+              </TableRow>
+            ) : exercises.length === 0 ? (
+              <TableRow>
+                <TableCell colSpan={isAdmin ? 4 : 3} align="center" sx={{ py: 4, color: 'text.secondary' }}>
+                  No exercises found. Add one to get started.
+                </TableCell>
+              </TableRow>
+            ) : (
+              exercises.map((e: ExerciseDto) => (
+                <TableRow key={e.id} hover sx={{ '&:last-child td': { borderBottom: 0 } }}>
+                  <TableCell sx={{ fontWeight: 500 }}>{e.name}</TableCell>
                   <TableCell>{e.category ?? '—'}</TableCell>
-                  <TableCell sx={{ maxWidth: 300 }}>{e.description ?? '—'}</TableCell>
+                  <TableCell sx={{ maxWidth: 360 }}>{e.description ?? '—'}</TableCell>
                   {isAdmin && (
                     <TableCell align="right">
                       <Button
                         size="small"
                         color="error"
+                        variant="outlined"
                         onClick={() => deleteMutation.mutate(e.id)}
                         disabled={deleteMutation.isPending}
                       >
@@ -129,7 +145,8 @@ export default function ExercisesPage() {
                     </TableCell>
                   )}
                 </TableRow>
-              ))}
+              ))
+            )}
           </TableBody>
         </Table>
       </TableContainer>

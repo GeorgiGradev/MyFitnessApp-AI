@@ -126,7 +126,7 @@
 
 - [x] Copy images from [MyFitnessApp/wwwroot/images](https://github.com/GeorgiGradev/MyFitnessApp/tree/main/MyFitnessApp/Web/MyFitnessApp.Web/wwwroot/images) into new app (e.g. `ClientApp/public/images`).
 - [x] Use images in UI where needed.
-- [ ] **Commit:** e.g. `Add images from original MyFitnessApp`.
+- [x] **Commit:** e.g. `Add images from original MyFitnessApp`.
 
 ---
 
