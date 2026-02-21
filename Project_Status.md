@@ -1,8 +1,7 @@
 # MyFitnessAppV2 – Project Status
 
-**Last updated:** 2026-02-21  
-**Repo:** [GeorgiGradev/MyFitnessApp-AI](https://github.com/GeorgiGradev/MyFitnessApp-AI)  
-**Purpose:** Rebuild [MyFitnessApp](https://github.com/GeorgiGradev/MyFitnessApp) with .NET 8, React, Material UI, PostgreSQL (AI-assisted). Track progress and next steps here.
+**Last updated:** 2026-02-22  
+**Repo:** [GeorgiGradev/MyFitnessApp-AI](https://github.com/GeorgiGradev/MyFitnessApp-AI)
 
 **Exam assignment (reference):** Requirements are in **Project_Requirements.md** (in project). Original: Project-Assignment.docx. We must deliver according to that document (see “Exam assignment deliverable” below).
 
@@ -134,18 +133,18 @@
 
 We need to fulfil and submit what the **Project_Requirements** file asks for. Deliverable is **one Google Drive Document** (shared “anyone with the link can view”), typically **3–6 pages**, containing:
 
-- [ ] **Project topic** (up to 1 page): idea and system requirements.
-- [ ] **System architecture – modules**: break the system into technological modules; for each module describe approach and how AI assisted.
-- [ ] **Development process per module** (up to ½ page per module): approach & reasoning, step-by-step workflow, testing strategy, AI tool choice, 2–3 key prompts or interactions.
-- [ ] **Challenges & tool comparison**: biggest challenges, which tool helped most and why, what you would improve.
-- [ ] **Working system evidence**: at least **two screenshots** of the functioning system (UI, terminal, Postman, logs, etc.).
-- [ ] **Repository**: link to GitHub repo (MyFitnessApp-AI).
-
-**Submission:** One archive (.zip, .rar, or .7z) uploaded in the “Regular Exam” topic via “ИЗБОР НА ФАЙЛ” by **16:00 on 24 February 2026**. The archive should contain (or link to) the Google Doc; each new upload overwrites the previous one.
+- [x] **Outline/template** in repo: `docs/Exam_Deliverable_Outline.md` (sections + module list for copying into Google Doc).
+- [x] **Project topic** (up to 1 page): idea and system requirements.
+- [x] **System architecture – modules**: break the system into technological modules; for each module describe approach and how AI assisted.
+- [x] **Development process per module** (up to ½ page per module): approach & reasoning, step-by-step workflow, testing strategy, AI tool choice, 2–3 key prompts or interactions.
+- [x] **Challenges & tool comparison**: biggest challenges, which tool helped most and why, what you would improve.
+- [x] **Working system evidence**: at least **two screenshots** of the functioning system (UI, terminal, Postman, logs, etc.).
+- [x] **Repository**: link to GitHub repo (MyFitnessApp-AI).
+- [ ] **Commit:** e.g. `Exam deliverable (Step 11)` (if any repo changes).
 
 ---
 
-### Step 12: Deployment
+### Step 12: Deployment (to do later)
 
 - [ ] Create Supabase or Neon PostgreSQL project; get connection string.
 - [ ] Configure production config / env (e.g. Railway or Render).
@@ -158,7 +157,7 @@ We need to fulfil and submit what the **Project_Requirements** file asks for. De
 
 ## Next step
 
-**Step 10 done.** Commit (e.g. `Add images from original MyFitnessApp`), then start **Step 11: Exam assignment deliverable (Project_Requirements)**.
+**Step 11 done.** Submit exam archive by **16:00 on 24 February 2026** if not already submitted. **Only Step 12 (Deployment) remains** — to do later when you are ready to deploy (Supabase/Neon, Railway/Render, run migrations, etc.).
 
 ---
 

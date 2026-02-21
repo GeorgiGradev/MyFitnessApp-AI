@@ -55,6 +55,10 @@ coverage/
 *.lcov
 TestResults/
 
+# Exam deliverable drafts (do not commit; for local/submission use only)
+docs/Exam_Deliverable_Outline.md
+docs/Exam_Deliverable_MyFitnessAppV2.md
+
 # Misc
 *.zip
 *.docx
