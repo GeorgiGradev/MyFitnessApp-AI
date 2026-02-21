@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using MyFitnessApp.Api.Data;
+using MyFitnessApp.Api.Middleware;
 using MyFitnessApp.Api.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -90,6 +91,7 @@ if (app.Environment.IsDevelopment())
 app.UseCors();
 app.UseHttpsRedirection();
 app.UseAuthentication();
+app.UseMiddleware<BannedUserMiddleware>();
 app.UseAuthorization();
 app.MapControllers();
 

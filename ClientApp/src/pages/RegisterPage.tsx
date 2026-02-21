@@ -46,6 +46,7 @@ export default function RegisterPage() {
 
   return (
     <Box sx={{ maxWidth: 400, mx: 'auto', mt: 4, p: 2 }}>
+      <Button component={Link} to="/" sx={{ mb: 2 }}>Back</Button>
       <Typography variant="h5" gutterBottom>
         Sign up
       </Typography>

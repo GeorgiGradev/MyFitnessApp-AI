@@ -91,8 +91,9 @@ public class ForumPostsController : ControllerBase
     {
         var userId = GetUserId();
         if (userId == null) return Unauthorized();
-        var post = await _db.ForumPosts.FirstOrDefaultAsync(p => p.Id == id && p.UserId == userId.Value, cancellationToken);
+        var post = await _db.ForumPosts.FirstOrDefaultAsync(p => p.Id == id, cancellationToken);
         if (post == null) return NotFound();
+        if (post.UserId != userId.Value && !User.IsInRole("Admin")) return Forbid();
         _db.ForumPosts.Remove(post);
         await _db.SaveChangesAsync(cancellationToken);
         return NoContent();

@@ -136,7 +136,7 @@ public class ArticlesController : ControllerBase
         if (userId == null) return Unauthorized();
         var article = await _db.Articles.FirstOrDefaultAsync(a => a.Id == id, cancellationToken);
         if (article == null) return NotFound();
-        if (article.AuthorUserId != userId.Value) return Forbid();
+        if (article.AuthorUserId != userId.Value && !User.IsInRole("Admin")) return Forbid();
         _db.Articles.Remove(article);
         await _db.SaveChangesAsync(cancellationToken);
         return NoContent();

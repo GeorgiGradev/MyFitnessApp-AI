@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   Box,
   Button,
@@ -74,6 +74,9 @@ export default function ProfilePage() {
 
   return (
     <Box sx={{ maxWidth: 480, mx: 'auto', mt: 4, p: 2 }}>
+      <Button component={Link} to="/" sx={{ mb: 2 }}>
+        Back
+      </Button>
       <Typography variant="h5" gutterBottom>
         Complete your profile
       </Typography>

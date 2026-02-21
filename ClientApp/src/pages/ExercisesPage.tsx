@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import {
   Box,
@@ -72,6 +73,9 @@ export default function ExercisesPage() {
 
   return (
     <Box sx={{ p: 3 }}>
+      <Button component={Link} to="/" sx={{ mb: 2 }}>
+        Back
+      </Button>
       <Typography variant="h5" gutterBottom>
         Exercises
       </Typography>

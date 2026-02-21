@@ -5,7 +5,7 @@ import { getHello } from '../services/api';
 import { useAuth } from '../context/AuthContext';
 
 export default function HomePage() {
-  const { email, logout } = useAuth();
+  const { email, logout, isAdmin } = useAuth();
   const { data, isLoading, error } = useQuery({
     queryKey: ['hello'],
     queryFn: getHello,
@@ -40,9 +40,14 @@ export default function HomePage() {
         <MuiLink component={Link} to="/blog" sx={{ mr: 2 }}>
           Blog
         </MuiLink>
-        <MuiLink component={Link} to="/social">
+        <MuiLink component={Link} to="/social" sx={{ mr: 2 }}>
           Social
         </MuiLink>
+        {isAdmin && (
+          <MuiLink component={Link} to="/admin">
+            Admin
+          </MuiLink>
+        )}
       </Box>
       <Paper sx={{ p: 2, maxWidth: 400 }}>
         {isLoading && <CircularProgress size={24} />}

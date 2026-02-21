@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import {
   Box,
@@ -19,6 +20,10 @@ import {
   DialogContent,
   DialogActions,
   Alert,
+  Select,
+  MenuItem,
+  FormControl,
+  InputLabel,
 } from '@mui/material';
 import {
   getEatingPlanByDate,
@@ -140,6 +145,9 @@ export default function DiariesPage() {
 
   return (
     <Box sx={{ p: 3 }}>
+      <Button component={Link} to="/" sx={{ mb: 2 }}>
+        Back
+      </Button>
       <Typography variant="h5" gutterBottom>
         Diaries
       </Typography>
@@ -308,20 +316,27 @@ export default function DiariesPage() {
         >
           <DialogTitle>Add food entry</DialogTitle>
           <DialogContent sx={{ display: 'flex', flexDirection: 'column', gap: 2, pt: 1 }}>
-            <TextField
-              select
-              SelectProps={{ native: true }}
-              label="Food"
-              value={eatingEntryForm.foodId}
-              onChange={(e) => setEatingEntryForm((p) => ({ ...p, foodId: e.target.value }))}
-              required
-              fullWidth
-            >
-              <option value="">Select food</option>
-              {foods.map((f) => (
-                <option key={f.id} value={f.id}>{f.name}</option>
-              ))}
-            </TextField>
+            <FormControl fullWidth required>
+              <InputLabel id="add-food-label">Food</InputLabel>
+              <Select
+                labelId="add-food-label"
+                label="Food"
+                value={eatingEntryForm.foodId}
+                onChange={(e) => setEatingEntryForm((p) => ({ ...p, foodId: e.target.value as string }))}
+              >
+                <MenuItem value="">
+                  <em>Select food</em>
+                </MenuItem>
+                {foods.map((f) => (
+                  <MenuItem key={f.id} value={f.id}>{f.name}</MenuItem>
+                ))}
+              </Select>
+              {foods.length === 0 && (
+                <Typography variant="caption" color="text.secondary" sx={{ mt: 0.5 }}>
+                  No foods yet. Add foods from the Foods page first.
+                </Typography>
+              )}
+            </FormControl>
             <TextField
               type="number"
               label="Quantity (g)"
@@ -354,20 +369,22 @@ export default function DiariesPage() {
         >
           <DialogTitle>Add exercise entry</DialogTitle>
           <DialogContent sx={{ display: 'flex', flexDirection: 'column', gap: 2, pt: 1 }}>
-            <TextField
-              select
-              SelectProps={{ native: true }}
-              label="Exercise"
-              value={workoutEntryForm.exerciseId}
-              onChange={(e) => setWorkoutEntryForm((p) => ({ ...p, exerciseId: e.target.value }))}
-              required
-              fullWidth
-            >
-              <option value="">Select exercise</option>
-              {exercises.map((ex) => (
-                <option key={ex.id} value={ex.id}>{ex.name}</option>
-              ))}
-            </TextField>
+            <FormControl fullWidth required>
+              <InputLabel id="add-exercise-label">Exercise</InputLabel>
+              <Select
+                labelId="add-exercise-label"
+                label="Exercise"
+                value={workoutEntryForm.exerciseId}
+                onChange={(e) => setWorkoutEntryForm((p) => ({ ...p, exerciseId: e.target.value as string }))}
+              >
+                <MenuItem value="">
+                  <em>Select exercise</em>
+                </MenuItem>
+                {exercises.map((ex) => (
+                  <MenuItem key={ex.id} value={ex.id}>{ex.name}</MenuItem>
+                ))}
+              </Select>
+            </FormControl>
             <TextField
               type="number"
               label="Sets"

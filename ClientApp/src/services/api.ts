@@ -292,6 +292,33 @@ export async function unfollowUser(userId: string): Promise<void> {
   if (!res.ok) throw new Error(await parseErrorResponse(res, 'Failed to unfollow'));
 }
 
+// --- Admin ---
+export interface AdminUserDto {
+  id: string;
+  email: string;
+  displayName: string | null;
+  isBanned: boolean;
+  isAdmin: boolean;
+}
+export interface SetBannedRequest {
+  isBanned: boolean;
+}
+
+export async function getAdminUsers(): Promise<AdminUserDto[]> {
+  const res = await apiFetch('/admin/users');
+  if (!res.ok) throw new Error(res.status === 403 ? 'Admin only' : 'Failed to load users');
+  return res.json();
+}
+export async function setUserBanned(userId: string, isBanned: boolean): Promise<AdminUserDto> {
+  const res = await apiFetch(`/admin/users/${userId}/ban`, {
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ isBanned }),
+  });
+  if (!res.ok) throw new Error(await parseErrorResponse(res, 'Failed to update user'));
+  return res.json();
+}
+
 // --- Eating plans ---
 export interface EatingPlanDto {
   id: string;

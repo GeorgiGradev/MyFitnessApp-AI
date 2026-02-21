@@ -16,6 +16,7 @@ import BlogPage from './pages/BlogPage';
 import ArticlePage from './pages/ArticlePage';
 import NewArticlePage from './pages/NewArticlePage';
 import SocialPage from './pages/SocialPage';
+import AdminPage from './pages/AdminPage';
 
 const queryClient = new QueryClient();
 const theme = createTheme();
@@ -115,6 +116,14 @@ function App() {
                 element={
                   <ProtectedRoute>
                     <SocialPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/admin"
+                element={
+                  <ProtectedRoute requireAdmin>
+                    <AdminPage />
                   </ProtectedRoute>
                 }
               />

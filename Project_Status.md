@@ -109,15 +109,15 @@
 
 - [x] API: follow/unfollow users (list users with isFollowing, following/followers lists, prevent self-follow and following banned users).
 - [x] React: follow/unfollow UI (Discover, Following, Followers tabs).
-- [ ] **Commit:** e.g. `Social: follow/unfollow`.
+- [x] **Commit:** e.g. `Social: follow/unfollow`.
 
 ---
 
 ### Step 9: Admin
 
-- [ ] Admin area: manage users, foods, exercises, articles, forum posts.
-- [ ] Ban/unban users; banned users restricted from full functionality.
-- [ ] React: admin routes and pages.
+- [x] Admin area: manage users (list, ban/unban); admin can delete any food, exercise, article, forum post.
+- [x] Ban/unban users; banned users restricted from full functionality (BannedUserMiddleware returns 403).
+- [x] React: admin route /admin (admin only), Users table with Ban/Unban.
 - [ ] **Commit:** e.g. `Admin area`.
 
 ---
@@ -177,7 +177,7 @@ The exam takes place **between 21 and 24 February 2026**, as follows:
 
 ## Next step
 
-**Step 8 done.** Apply migration `AddUserFollows` if not yet applied: run `dotnet ef database update` (with API stopped), then restart API. Commit (e.g. `Social: follow/unfollow`), then start **Step 9: Admin**.
+**Step 9 done.** Commit (e.g. `Admin area`), then start **Step 10: Images and polish**.
 
 ---
 

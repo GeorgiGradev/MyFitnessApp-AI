@@ -63,6 +63,7 @@ export default function ForumPage() {
 
   return (
     <Box sx={{ p: 3 }}>
+      <Button component={Link} to="/" sx={{ mb: 2 }}>Back</Button>
       <Typography variant="h5" gutterBottom>Forum</Typography>
       <Box sx={{ display: 'flex', gap: 2, mb: 2, flexWrap: 'wrap' }}>
         <TextField
