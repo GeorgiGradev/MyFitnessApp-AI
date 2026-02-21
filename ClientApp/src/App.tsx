@@ -9,6 +9,12 @@ import RegisterPage from './pages/RegisterPage';
 import ProfilePage from './pages/ProfilePage';
 import FoodsPage from './pages/FoodsPage';
 import ExercisesPage from './pages/ExercisesPage';
+import DiariesPage from './pages/DiariesPage';
+import ForumPage from './pages/ForumPage';
+import ForumPostPage from './pages/ForumPostPage';
+import BlogPage from './pages/BlogPage';
+import ArticlePage from './pages/ArticlePage';
+import NewArticlePage from './pages/NewArticlePage';
 
 const queryClient = new QueryClient();
 const theme = createTheme();
@@ -52,6 +58,54 @@ function App() {
                 element={
                   <ProtectedRoute>
                     <ExercisesPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/diaries"
+                element={
+                  <ProtectedRoute>
+                    <DiariesPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/forum"
+                element={
+                  <ProtectedRoute>
+                    <ForumPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/forum/:id"
+                element={
+                  <ProtectedRoute>
+                    <ForumPostPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/blog"
+                element={
+                  <ProtectedRoute>
+                    <BlogPage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/blog/new"
+                element={
+                  <ProtectedRoute>
+                    <NewArticlePage />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/blog/:id"
+                element={
+                  <ProtectedRoute>
+                    <ArticlePage />
                   </ProtectedRoute>
                 }
               />

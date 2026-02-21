@@ -83,24 +83,24 @@
 
 ### Step 5: Diaries (eating & workout plans)
 
-- [ ] API: create, edit, delete eating and workout plans.
-- [ ] React: UI for managing diaries.
+- [x] API: create, edit, delete eating and workout plans (and entries; by current user).
+- [x] React: UI for managing diaries (date picker, eating/workout tabs, add/delete entries).
 - [ ] **Commit:** e.g. `Diaries: eating and workout plans`.
 
 ---
 
 ### Step 6: Forum
 
-- [ ] API: forum posts, comments, search.
-- [ ] React: list, create, edit, delete posts and comments (with confirmation).
+- [x] API: forum posts, comments, search.
+- [x] React: list, create, edit, delete posts and comments (with confirmation for delete comment).
 - [ ] **Commit:** e.g. `Forum: posts and comments`.
 
 ---
 
 ### Step 7: Blog
 
-- [ ] API: articles, categories.
-- [ ] React: list, create, edit, delete articles.
+- [x] API: articles, categories (CRUD; [Authorize] for create/update/delete).
+- [x] React: list (with category filter), create, edit, delete articles.
 - [ ] **Commit:** e.g. `Blog: articles`.
 
 ---
@@ -178,7 +178,7 @@ The exam takes place **between 21 and 24 February 2026**, as follows:
 
 ## Next step
 
-**Step 4 done.** Commit (e.g. `Foods and Exercises module`), then start **Step 5: Diaries**.
+**Steps 5–7 (Batch A) done.** Apply migration: run `dotnet ef database update` (with API stopped), then restart API. Commit (e.g. `Diaries, Forum, Blog (Batch A)`), then start **Step 8: Social**.
 
 ---
 

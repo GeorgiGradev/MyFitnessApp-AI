@@ -1,5 +1,6 @@
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -76,6 +77,14 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    // Return JSON for API errors so the client can show the real message
+    app.UseExceptionHandler(a => a.Run(async ctx =>
+    {
+        var ex = ctx.Features.Get<IExceptionHandlerFeature>()?.Error;
+        ctx.Response.StatusCode = 500;
+        ctx.Response.ContentType = "application/json";
+        await ctx.Response.WriteAsJsonAsync(new { message = ex?.Message ?? "An error occurred.", detail = ex?.ToString() });
+    }));
 }
 
 app.UseCors();

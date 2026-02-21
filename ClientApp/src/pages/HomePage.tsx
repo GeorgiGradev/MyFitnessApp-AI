@@ -28,8 +28,17 @@ export default function HomePage() {
         <MuiLink component={Link} to="/foods" sx={{ mr: 2 }}>
           Foods
         </MuiLink>
-        <MuiLink component={Link} to="/exercises">
+        <MuiLink component={Link} to="/exercises" sx={{ mr: 2 }}>
           Exercises
+        </MuiLink>
+        <MuiLink component={Link} to="/diaries" sx={{ mr: 2 }}>
+          Diaries
+        </MuiLink>
+        <MuiLink component={Link} to="/forum" sx={{ mr: 2 }}>
+          Forum
+        </MuiLink>
+        <MuiLink component={Link} to="/blog">
+          Blog
         </MuiLink>
       </Box>
       <Paper sx={{ p: 2, maxWidth: 400 }}>
