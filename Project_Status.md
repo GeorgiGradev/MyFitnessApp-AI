@@ -118,30 +118,19 @@
 - [x] Admin area: manage users (list, ban/unban); admin can delete any food, exercise, article, forum post.
 - [x] Ban/unban users; banned users restricted from full functionality (BannedUserMiddleware returns 403).
 - [x] React: admin route /admin (admin only), Users table with Ban/Unban.
-- [ ] **Commit:** e.g. `Admin area`.
+- [x] **Commit:** e.g. `Admin area`.
 
 ---
 
 ### Step 10: Images and polish
 
-- [ ] Copy images from [MyFitnessApp/wwwroot/images](https://github.com/GeorgiGradev/MyFitnessApp/tree/main/MyFitnessApp/Web/MyFitnessApp.Web/wwwroot/images) into new app (e.g. `ClientApp/public/images`).
-- [ ] Use images in UI where needed.
+- [x] Copy images from [MyFitnessApp/wwwroot/images](https://github.com/GeorgiGradev/MyFitnessApp/tree/main/MyFitnessApp/Web/MyFitnessApp.Web/wwwroot/images) into new app (e.g. `ClientApp/public/images`).
+- [x] Use images in UI where needed.
 - [ ] **Commit:** e.g. `Add images from original MyFitnessApp`.
 
 ---
 
-### Step 11: Deployment
-
-- [ ] Create Supabase or Neon PostgreSQL project; get connection string.
-- [ ] Configure production config / env (e.g. Railway or Render).
-- [ ] Deploy API (+ React static files if single deployment).
-- [ ] Run migrations; verify app online.
-- [ ] Configure API to serve React static files in production (optional; done before deploy).
-- [ ] **Commit:** e.g. `Deployment config and docs update` (if any repo changes).
-
----
-
-### Step 12: Exam assignment deliverable (Project_Requirements)
+### Step 11: Exam assignment deliverable (Project_Requirements)
 
 We need to fulfil and submit what the **Project_Requirements** file asks for. Deliverable is **one Google Drive Document** (shared “anyone with the link can view”), typically **3–6 pages**, containing:
 
@@ -156,28 +145,20 @@ We need to fulfil and submit what the **Project_Requirements** file asks for. De
 
 ---
 
-## Exam schedule (AI-Assisted Development course)
+### Step 12: Deployment
 
-The exam takes place **between 21 and 24 February 2026**, as follows:
-
-**1. Practical part**
-
-- In the **“Regular Exam”** topic there is an uploaded file with the project requirements.
-- You must submit **one** file in archive format (**.zip**, .rar, or .7z) via the **“ИЗБОР НА ФАЙЛ”** (FILE CHOICE) button in the “Regular Exam” topic.
-- **Deadline:** by **16:00 on 24 February 2026**.
-- You submit a **single** archive; each upload **overwrites** the previous one (only the last uploaded archive is kept).
-
-**2. Theoretical part**
-
-- The test is available in the **Quiz** system.
-- You can **start** the exam **no earlier than 08:00 on 21 February** and **no later than 16:00 on 24 February 2026**.
-- On **25 February 2026 (Wednesday)**, between **10:00 and 22:00**, the test will be **open for review** and you will be able to see the answers. The review option is provided only to participants who have passed the exam.
+- [ ] Create Supabase or Neon PostgreSQL project; get connection string.
+- [ ] Configure production config / env (e.g. Railway or Render).
+- [ ] Deploy API (+ React static files if single deployment).
+- [ ] Run migrations; verify app online.
+- [ ] Configure API to serve React static files in production (optional; done before deploy).
+- [ ] **Commit:** e.g. `Deployment config and docs update` (if any repo changes).
 
 ---
 
 ## Next step
 
-**Step 9 done.** Commit (e.g. `Admin area`), then start **Step 10: Images and polish**.
+**Step 10 done.** Commit (e.g. `Add images from original MyFitnessApp`), then start **Step 11: Exam assignment deliverable (Project_Requirements)**.
 
 ---
 
